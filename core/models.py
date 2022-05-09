@@ -41,6 +41,30 @@ class Servico(Base):
         return self.servico
 
 
+class Recurso(Base):
+    ICONE_CHOICES = (
+        ('lni-rocket', 'Foguete'),
+        ('lni-laptop-phone', 'Notebook'),
+        ('lni-cog', 'Engrenagem'),
+        ('lni-leaf', 'Design moderno'),
+        ('lni-layers', 'Templates'),
+        ('lni-leaf', 'Formas'),
+        
+    )
+
+    recurso = models.CharField('Recurso', max_length=100)
+    descricao = models.TextField('Descrição', max_length=200)
+    icone = models.CharField('Icone', max_length=20, choices=ICONE_CHOICES)
+
+    class Meta:
+        verbose_name = 'Recurso'
+        verbose_name_plural = 'Recursos'
+
+    def __str__(self):
+        return self.recurso
+
+
+
 class Cargo(Base):
     cargo = models.CharField('Cargo', max_length=100)
 
